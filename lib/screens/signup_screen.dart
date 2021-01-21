@@ -54,40 +54,29 @@ class _SignupScreenState extends State<SignupScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Signup'),
-        actions: <Widget>[
-          FlatButton(
-            child: Row(
-              children: <Widget>[Text('Login'), Icon(Icons.person)],
-            ),
-            textColor: Colors.white,
-            onPressed: () {
-              Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
-            },
-          )
-        ],
       ),
       body: Stack(
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-              Colors.limeAccent,
-              Colors.redAccent,
-            ])),
+              color: Colors.lime,
+            ),
           ),
           Center(
             child: Card(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.circular(5.0),
               ),
               child: Container(
-                height: 300,
-                width: 300,
-                padding: EdgeInsets.all(16),
+                height: 400,
+                width: double.infinity,
+                padding: EdgeInsets.all(40),
                 child: Form(
                   key: _formKey,
                   child: SingleChildScrollView(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         //email
                         TextFormField(
@@ -143,11 +132,35 @@ class _SignupScreenState extends State<SignupScreen> {
                             _submit();
                           },
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
+                            borderRadius: BorderRadius.circular(10),
                           ),
-                          color: Colors.blue,
+                          color: Colors.green,
                           textColor: Colors.white,
-                        )
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        FlatButton(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                'Already have an account? Signin',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              Icon(Icons.login),
+                            ],
+                          ),
+                          textColor: Colors.black,
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed(LoginScreen.routeName);
+                          },
+                        ),
                       ],
                     ),
                   ),

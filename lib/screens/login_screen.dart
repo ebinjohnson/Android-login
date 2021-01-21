@@ -54,41 +54,29 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Login'),
-        actions: <Widget>[
-          FlatButton(
-            child: Row(
-              children: <Widget>[Text('Signup'), Icon(Icons.person_add)],
-            ),
-            textColor: Colors.white,
-            onPressed: () {
-              Navigator.of(context)
-                  .pushReplacementNamed(SignupScreen.routeName);
-            },
-          )
-        ],
       ),
       body: Stack(
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-              Colors.lightGreenAccent,
-              Colors.blue,
-            ])),
+              color: Colors.lime,
+            ),
           ),
           Center(
             child: Card(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.circular(5.0),
               ),
               child: Container(
-                height: 260,
-                width: 300,
-                padding: EdgeInsets.all(16),
+                height: 400,
+                width: double.infinity,
+                padding: EdgeInsets.all(40),
                 child: Form(
                   key: _formKey,
                   child: SingleChildScrollView(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         //email
                         TextFormField(
@@ -128,11 +116,35 @@ class _LoginScreenState extends State<LoginScreen> {
                             _submit();
                           },
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
+                            borderRadius: BorderRadius.circular(10),
                           ),
-                          color: Colors.blue,
+                          color: Colors.green,
                           textColor: Colors.white,
-                        )
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        FlatButton(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                'New User?Signup',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              Icon(Icons.person_add),
+                            ],
+                          ),
+                          textColor: Colors.black,
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed(SignupScreen.routeName);
+                          },
+                        ),
                       ],
                     ),
                   ),

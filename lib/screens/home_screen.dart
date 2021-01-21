@@ -9,28 +9,42 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueAccent,
       appBar: AppBar(
-        leading: Icon(Icons.menu),
-        title: Text('Home Screen'),
-        actions: <Widget>[
-          IconButton(
-              tooltip: 'Logout',
-              icon: Icon(
-                Icons.logout,
+        backgroundColor: Colors.blueAccent,
+        title: Text(
+          'Home Screen',
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Welcome User!!',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            RaisedButton(
+              child: Text(
+                'Logout',
               ),
               onPressed: () {
                 Navigator.of(context)
                     .pushReplacementNamed(LoginScreen.routeName);
-              })
-        ],
-      ),
-      body: Center(
-        child: Text(
-          'This is my home screen',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-          ),
+              },
+            ),
+          ],
         ),
       ),
     );
